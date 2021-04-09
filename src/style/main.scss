@@ -1,28 +1,32 @@
-html {
-    font-size: 62.5%; // 1rem is 10px
-}
+.page-wrapper {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 
-*,
-*::after,
-*::before {
-    margin: 0;
-    padding: 0;
-    box-sizing: inherit;
-    font-family: 'montserrat';
-}
+    h1 {
+        text-align: center;
+    }
 
-body {
-    overflow-x: hidden;
-    font-weight: normal;
+    .button {
+        display: flex;
+        align-items: center;
+    }
 
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    text-rendering: optimizeLegibility;
-    -webkit-tap-highlight-color: transparent;
-}
+    .form-wrapper {
+        width: 50%;
+        display: flex;
+        align-items: center;
 
-.app {
-    margin-top: 2rem;
-    display: grid;
-    justify-items: center;
+        .wrapper{
+            input{
+                margin-left: 10px;
+            }
+        }
+
+        
+        
+    }
 }
