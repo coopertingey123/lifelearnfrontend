@@ -13,7 +13,13 @@ export default class UserSignup extends Component {
         
         this.handleChange = this.handleChange.bind(this)
         this.handleSubmit = this.handleSubmit.bind(this)
+        // this.raiseInvoiceClicked = this.raiseInvoiceClicked(this)
     }
+
+    // raiseInvoiceClicked(event){
+    //     const url = 'https://docs.google.com/forms/d/1l9MpELxJjJH7O5RIyXNp4mbTkOdJSMvQJz4f_5yJhWw/edit';
+    //     window.open(url, '_blank');
+    // }
 
     handleChange(event) {
         this.setState({
@@ -24,7 +30,7 @@ export default class UserSignup extends Component {
     handleSubmit(event) {
         event.preventDefault()
         
-        fetch("https://127.0.0.1:5000/user/add", {
+        fetch("http://127.0.0.1:5000/user/add", {
             method: "POST",
             headers: { "content-type": "application/json" },
             body: JSON.stringify({
@@ -36,7 +42,9 @@ export default class UserSignup extends Component {
         .then(response => response.json())
         .then(data => {
             if (data == "User added successfully") {
-                this.props.history.push("/end")
+                // this.props.history.push("/end")
+                const url = 'https://docs.google.com/forms/d/1l9MpELxJjJH7O5RIyXNp4mbTkOdJSMvQJz4f_5yJhWw/edit';
+                window.open(url, '_blank');
             }            
             else {
                 this.setState({ error: true })
@@ -57,7 +65,7 @@ export default class UserSignup extends Component {
                         <h1>Sign up here!</h1>
                         
                         <div className="wrapper">
-                            Email:
+                            Enter your email here:
                             <input
                                 type="text"
                                 name="email"
@@ -68,7 +76,7 @@ export default class UserSignup extends Component {
                         </div>
 
                         <div className="wrapper">
-                            Your friend's code:
+                            Enter your friend's code here:
                             <input
                                 type="text"
                                 name="signup_code"
@@ -78,12 +86,12 @@ export default class UserSignup extends Component {
                             />
                         </div>
                         <div className="wrapper">
-                            I love my code. It is {this.state.personal_code}
+                            Your personal code is {this.state.personal_code}. Ask friends to sign up with this code to increase your chances of winning $100!
                         </div>
 
                         <div className="button">
                             <button type="submit">
-                                Sign up
+                                Go to survey
                             </button>
                         </div>
 
